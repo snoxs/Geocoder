@@ -200,6 +200,10 @@ class GoogleMaps extends AbstractHttpProvider implements LocaleAwareProvider
                     'east'  => $coordinates->lng
                 );
             }
+            
+            if (isset($result->place_id)) {
+                $resultSet['placeId'] = $result->place_id;
+            }
 
             $results[] = array_merge($this->getDefaults(), $resultSet);
         }
